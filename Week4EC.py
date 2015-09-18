@@ -54,12 +54,30 @@ def kelvin_to_fahrenheit(degrees):
     """
     return celsius_to_fahrenheit(kelvin_to_celsius(degrees))
 
-# A conversion function for any temperature
+# Two conversion functions for any temperature
 
+
+def convert(mytemp):
+    """Converts a user-enter number to Celsius, Kelvin and Fahrenheit.
+
+    Args:
+        temperature: any decimal-valued Celsius/Kelvin/Fahrenheit temperature
+
+    Returns:
+        Returns the equivalent temperatures in Kelvin, Celsius and Fahrenheit
+        degrees.
+        For example convert(0) provides the following output:
+        (Decimal('32'), Decimal('-273.15'), Decimal('-459.67'))
+
+    Raises:
+        NameError: name 'x' is not defined (argument must be a number)
+    """
+    return decimal.Decimal(mytemp) * 9 / 5 + 32, \
+    decimal.Decimal(mytemp) - task_01.ABSOLUTE_DIFFERENCE, \
+    celsius_to_fahrenheit(kelvin_to_celsius(mytemp))
 
 def temp_convert(temperature):
-    """Converts from Kelvin to Fahrenheit by first converting from Kelvin
-    to Celsius.
+    """Converts a user-enter number to Celsius, Kelvin and Fahrenheit.
 
     Args:
         temperature: any decimal-valued Celsius/Kelvin/Fahrenheit temperature
