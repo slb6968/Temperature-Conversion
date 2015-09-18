@@ -72,10 +72,9 @@ def temp_convert(temperature):
             0 degrees Celsius = 32.0 degrees Fahrenheit or 273.15 Kelvin
             0 Kelvin = -273.15 degrees Celsius or -459.67 degrees Fahrenheit
     """
-
     tempstr = (str(temperature) + ' {0} = {1} {2} or {3} {4}')
-    celsius = (decimal.Decimal(temperature) - 32) * 5 / 9
-    kelvin = celsius + task_01.ABSOLUTE_DIFFERENCE
+    celsius = decimal.Decimal(temperature) - 32 * 5 / 9
+    kelvin = decimal.Decimal(celsius) + task_01.ABSOLUTE_DIFFERENCE
     print tempstr.format('degrees Fahrenheit', round(celsius, 2),
                          'degrees Celsius', round(kelvin, 2), 'Kelvin')
     fahrenheit = decimal.Decimal(temperature) * 9 / 5 + 32
@@ -83,7 +82,7 @@ def temp_convert(temperature):
     print tempstr.format('degrees Celsius', round(fahrenheit, 2),
                          'degrees Fahrenheit', round(kelvin, 2), 'Kelvin')
     celsius = decimal.Decimal(temperature) - task_01.ABSOLUTE_DIFFERENCE
-    fahrenheit = celsius * 9 / 5 + 32
+    fahrenheit = decimal.Decimal(celsius) * 9 / 5 + 32
     print tempstr.format('Kelvin', round(celsius, 2), 'degrees Celsius',
                          round(fahrenheit, 2), 'degrees Fahrenheit')
     return
